@@ -1,0 +1,23 @@
+.table__row {
+  display: flex;
+  height: 30px;
+}
+
+.table__header {
+  display: flex;
+  height: 40px;
+}
+
+.table__column-header {
+}
+
+.table__cell {
+}
+
+.table__cell--value-up {
+  color: $color-success;
+}
+
+.table__cell--value-down {
+  color: $color-warning;
+}
