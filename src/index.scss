@@ -39,6 +39,12 @@ p {
   width: $width-25;
 }
 
+// Основные классы для ширин
+
+.width-100 {
+  width: $width-100;
+}
+
 // Размер текста
 .text-xs {
   font-size: $font-size-xs;
@@ -78,12 +84,18 @@ p {
 }
 
 // Стили оформления границ
-.border {
+.border-bottom {
   &-primary {
-    border: 1px solid $blue-primary;
+    border-bottom: 2px solid $blue-primary;
   }
 
   &-secondary {
-    border: 1px solid $orange-primary;
+    border-bottom: 2px solid $orange-primary;
   }
+}
+
+.app-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
 }
