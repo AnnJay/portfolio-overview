@@ -42,3 +42,16 @@ export const normalizeCurrencyDataForStore = (
     {}
   );
 };
+
+export const getGeneralCurrencyVolume = (data: CurrencyShortInterface[]) =>
+  data.reduce<number>((acc, cur) => acc + Number(cur.lastPrice) * cur.count, 0);
+
+export const getVolumePercentInPortfolio = (
+  currencyVolume: number,
+  record: CurrencyShortInterface
+) => {
+  const res =
+    ((Number(record.lastPrice) * record.count) / currencyVolume) * 100;
+
+  return `${res.toFixed(2)} %`;
+};
