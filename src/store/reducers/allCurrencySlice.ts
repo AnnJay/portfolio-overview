@@ -3,12 +3,14 @@ import { NormalizedCurrencyRecords } from "../../types/currency.type";
 
 interface AllCurrency {
   allCurrency: NormalizedCurrencyRecords;
+  allCurrencyKeys: string[];
   isLoading: boolean;
   error: string;
 }
 
 const initialState: AllCurrency = {
   allCurrency: {},
+  allCurrencyKeys: [],
   isLoading: false,
   error: "",
 };
@@ -27,6 +29,7 @@ export const allCurrencySlice = createSlice({
       state.isLoading = false;
       state.error = "";
       state.allCurrency = action.payload;
+      state.allCurrencyKeys = Object.keys(action.payload);
     },
     allCurrencyFetchingFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
