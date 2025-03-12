@@ -4,6 +4,12 @@
   display: flex;
   height: 40px;
   align-items: center;
+
+  &:hover {
+    background-color: $blue-pale;
+    cursor: pointer;
+    transition: color 0.4s ease;
+  }
 }
 
 .table__cell {

@@ -98,9 +98,16 @@ p {
   &-primary {
     border-bottom: 2px solid $blue-primary;
   }
+  &-primary--light {
+    border-bottom: 1px solid $blue-primary;
+  }
 
   &-secondary {
     border-bottom: 2px solid $orange-primary;
+  }
+
+  &-secondary--light {
+    border-bottom: 1px solid $orange-primary;
   }
 }
 
