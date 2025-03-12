@@ -29,7 +29,7 @@ export const allCurrencySlice = createSlice({
       state.isLoading = false;
       state.error = "";
       state.allCurrency = action.payload;
-      state.allCurrencyKeys = Object.keys(action.payload);
+      state.allCurrencyKeys = Object.keys(action.payload).sort();
     },
     allCurrencyFetchingFailure(state, action: PayloadAction<string>) {
       state.isLoading = false;
