@@ -6,7 +6,6 @@ import { fixLastPrice } from "../../libs/utils";
 
 import "./form.style.scss";
 import { userCurrencySlice } from "../../store/reducers/userCurrencySlice";
-import { useLocalStorage } from "../../hooks/useLocalStorage";
 
 interface AddCurrencyFormProps {
   onCancel: () => void;
@@ -19,10 +18,6 @@ export const AddCurrencyForm: FC<AddCurrencyFormProps> = ({ onCancel }) => {
 
   const { addNewCurrency } = userCurrencySlice.actions;
   const dispatch = useAppDispatch();
-
-  const [userCurrency, setUserCurrency] = useLocalStorage<
-    CurrencyShortInterface[]
-  >("user_currency", []);
 
   const [selectedCurrency, setSelectedCurrency] =
     useState<CurrencyShortInterface | null>(null);
@@ -45,15 +40,11 @@ export const AddCurrencyForm: FC<AddCurrencyFormProps> = ({ onCancel }) => {
 
   const handleAddCurrency = () => {
     if (selectedCurrency) {
-      // const item = JSON.stringify([...userCurrency, selectedCurrency]);
-      // localStorage.setItem("user_currency", item);
-      setUserCurrency([...userCurrency, selectedCurrency]);
-      dispatch(addNewCurrency({ ...selectedCurrency, count }));
+      const newUserCurrency = { ...selectedCurrency, count };
+      dispatch(addNewCurrency(newUserCurrency));
       onCancel();
     }
   };
-
-  console.log(selectedCurrency);
 
   return (
     <div>
