@@ -1,21 +1,25 @@
+import { FC } from "react";
+
 import { useAppSelector } from "../../hooks/redux";
-import { getRowData, TABLE_HEADER_COLUMNS } from "../../libs/tables";
+import { CurrencyShortInterface } from "../../types/currency.type";
+import { VirtualTableContainer } from "./VirtualTableContainer";
 import { TableHeader } from "./TableHeader";
-import { TableRow } from "./TableRow";
+import {TABLE_HEADER_COLUMNS } from "../../libs/tables";
 
 import "./table.style.scss";
 
-export const Table = () => {
+export const Table: FC = () => {
   const { userCurrency } = useAppSelector((state) => state.userCurrency);
+  const data: CurrencyShortInterface[] = userCurrency;
 
   return (
-    <div className="width-100">
+    <div className="table__container">
       <TableHeader headers={TABLE_HEADER_COLUMNS} />
-      <div className="table__container">
-        {userCurrency.map((currency) => (
-          <TableRow key={currency.symbol} cells={getRowData(currency)} />
-        ))}
-      </div>
+      <VirtualTableContainer
+        data={data}
+        itemHeight={40}
+        containerHeight="80vh"
+      />
     </div>
   );
 };

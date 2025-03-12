@@ -55,9 +55,10 @@
     margin-right: 1rem;
   }
 }
-.table__container {
-  height: 80vh;
-  overflow-y: scroll;
+
+.virtual__container {
+  overflow: auto;
+
   &::-webkit-scrollbar {
     height: 8px;
     width: 8px;
