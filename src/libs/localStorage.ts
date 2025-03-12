@@ -32,3 +32,15 @@ export const deleteCurrencyFromLocalStorage = (name: string) => {
     updateStorage(newData);
   }
 };
+
+export const mutateCurrencyInLocalStorage = (
+  index: number,
+  newRecord: CurrencyShortInterface
+) => {
+  const data = getUserCurrencyFromStorage();
+
+  if (data) {
+    data[index] = newRecord;
+    updateStorage(data);
+  }
+};

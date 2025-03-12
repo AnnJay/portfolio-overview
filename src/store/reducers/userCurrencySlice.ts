@@ -4,6 +4,7 @@ import {
   addCurrencyToLocalStorage,
   deleteCurrencyFromLocalStorage,
   getUserCurrencyFromStorage,
+  mutateCurrencyInLocalStorage,
 } from "../../libs/localStorage";
 
 interface UserCurrency {
@@ -28,8 +29,28 @@ export const userCurrencySlice = createSlice({
     },
 
     addNewCurrency(state, action: PayloadAction<CurrencyShortInterface>) {
-      state.userCurrency.push(action.payload);
-      addCurrencyToLocalStorage(action.payload);
+      const existingCurrencyIndex = state.userCurrency.findIndex(
+        (cur) => cur.name === action.payload.name
+      );
+
+      if (existingCurrencyIndex > -1) {
+        const count =
+          Number(action.payload.count) +
+          Number(state.userCurrency[existingCurrencyIndex].count);
+
+        state.userCurrency[existingCurrencyIndex] = {
+          ...action.payload,
+          count,
+        };
+
+        mutateCurrencyInLocalStorage(existingCurrencyIndex, {
+          ...action.payload,
+          count,
+        });
+      } else {
+        state.userCurrency.push(action.payload);
+        addCurrencyToLocalStorage(action.payload);
+      }
     },
 
     deleteCurrency(state, action: PayloadAction<string>) {
