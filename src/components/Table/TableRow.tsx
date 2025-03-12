@@ -11,7 +11,7 @@ interface TableRowProps {
 
 export const TableRow: FC<TableRowProps> = ({ cells }) => {
   const dispatch = useAppDispatch();
-  const { deleteCurrency } = userCurrencySlice.actions;
+  const { deleteCurrency, refreshTableStatistics } = userCurrencySlice.actions;
 
   const handleDeleteCurrency = () => {
     const name = cells
@@ -20,6 +20,7 @@ export const TableRow: FC<TableRowProps> = ({ cells }) => {
 
     if (name) {
       dispatch(deleteCurrency(name));
+      dispatch(refreshTableStatistics());
     }
   };
 

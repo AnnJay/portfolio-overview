@@ -16,7 +16,7 @@ export const AddCurrencyForm: FC<AddCurrencyFormProps> = ({ onCancel }) => {
     (state) => state.allCurrency
   );
 
-  const { addNewCurrency } = userCurrencySlice.actions;
+  const { addNewCurrency, refreshTableStatistics } = userCurrencySlice.actions;
   const dispatch = useAppDispatch();
 
   const [selectedCurrency, setSelectedCurrency] =
@@ -42,6 +42,7 @@ export const AddCurrencyForm: FC<AddCurrencyFormProps> = ({ onCancel }) => {
     if (selectedCurrency) {
       const newUserCurrency = { ...selectedCurrency, count };
       dispatch(addNewCurrency(newUserCurrency));
+      dispatch(refreshTableStatistics());
       onCancel();
     }
   };

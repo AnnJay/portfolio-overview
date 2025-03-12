@@ -41,13 +41,13 @@ export const getRowData = (rawData: CurrencyShortInterface): TableCell[] => {
     },
     {
       columnHeader: CurrencyColumnHeaders.Price,
-      value: rawData.lastPrice,
+      value: Number(rawData.lastPrice).toFixed(4),
       widthClass: "col-width-lg",
       order: 2,
     },
     {
       columnHeader: CurrencyColumnHeaders.Value,
-      value: String(Number(rawData.lastPrice) * rawData.count),
+      value: rawData.volume.toFixed(2),
       widthClass: "col-width-lg",
       order: 3,
     },
@@ -59,7 +59,7 @@ export const getRowData = (rawData: CurrencyShortInterface): TableCell[] => {
     },
     {
       columnHeader: CurrencyColumnHeaders.PercentInPortfolio,
-      value: String(rawData.percentInPortfolio),
+      value: rawData.percentInPortfolio.toFixed(2),
       widthClass: "col-width-md",
       order: 5,
     },
