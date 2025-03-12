@@ -11,9 +11,11 @@ export const Table = () => {
   return (
     <div className="width-100">
       <TableHeader headers={TABLE_HEADER_COLUMNS} />
-      {userCurrency.map((currency) => (
-        <TableRow key={currency.symbol} cells={getRowData(currency)} />
-      ))}
+      <div className="table__container">
+        {userCurrency.map((currency) => (
+          <TableRow key={currency.symbol} cells={getRowData(currency)} />
+        ))}
+      </div>
     </div>
   );
 };

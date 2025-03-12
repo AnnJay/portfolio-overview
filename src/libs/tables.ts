@@ -59,7 +59,7 @@ export const getRowData = (rawData: CurrencyShortInterface): TableCell[] => {
     },
     {
       columnHeader: CurrencyColumnHeaders.PercentInPortfolio,
-      value: rawData.percentInPortfolio.toFixed(2),
+      value: String(rawData.percentInPortfolio.toFixed(2)),
       widthClass: "col-width-md",
       order: 5,
     },
