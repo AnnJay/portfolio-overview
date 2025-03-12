@@ -9,7 +9,7 @@ interface TableHeaderProps {
 
 export const TableHeader: FC<TableHeaderProps> = ({ headers }) => {
   return (
-    <div className={classNames("table__header", "border-bottom-secondary")}>
+    <div className={classNames("table__header", "border-bottom-primary")}>
       {headers.map((header) => (
         <div
           key={header.columnHeader}

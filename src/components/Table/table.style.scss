@@ -5,11 +5,6 @@
   height: 30px;
 }
 
-.table__header {
-  display: flex;
-  height: 40px;
-}
-
 .table__cell {
   text-align: center;
   color: $gray-dark;
@@ -26,20 +21,18 @@
 .table__header {
   display: flex;
   padding: 1rem 1.5rem;
-  font-weight: 600;
+  font-weight: $font-weight-column-header;
   color: $blue-dark;
-  background-color: transparent;
-  
 }
 
 .table__column-header {
-  flex: 1;
   padding: 0.75rem 1rem;
   text-align: left;
   font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
   color: $gray-medium;
+  text-align: center;
 
   &:hover {
     color: $blue-primary;
