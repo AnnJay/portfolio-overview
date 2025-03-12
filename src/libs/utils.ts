@@ -12,6 +12,8 @@ export const filterCurrencyData = (data: CurrencyFullInterface[]) =>
 export const getCoinName = (symbol: string) =>
   symbol.toLowerCase().replace(STABLE_COIN, "");
 
+export const fixLastPrice = (price: string) => `$ ${Number(price).toFixed(4)}`;
+
 export const shortenInitialRecord = (currency: CurrencyFullInterface) => {
   const newRecord: CurrencyShortInterface = {
     symbol: currency.symbol,

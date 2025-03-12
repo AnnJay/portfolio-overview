@@ -9,11 +9,11 @@ interface TableRowProps {
 
 export const TableRow: FC<TableRowProps> = ({ cells }) => {
   return (
-    <div className="table__row">
+    <div className="table__row border-bottom-primary--light">
       {cells.map((cell) => (
         <div
           key={cell.columnHeader}
-          className={classNames("table__cell", {
+          className={classNames("table__cell", cell.widthClass, {
             "table__cell--value-up":
               cell.columnHeader === CurrencyColumnHeaders.PriceChange &&
               Number(cell.value) >= 0,

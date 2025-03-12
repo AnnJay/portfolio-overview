@@ -4,12 +4,10 @@ import { getGeneralCurrencyVolume } from "../../libs/utils";
 
 interface UserCurrency {
   userCurrency: CurrencyShortInterface[];
-  currencyVolume: number;
 }
 
 const initialState: UserCurrency = {
   userCurrency: [],
-  currencyVolume: 0,
 };
 
 export const userCurrencySlice = createSlice({
@@ -21,7 +19,6 @@ export const userCurrencySlice = createSlice({
       action: PayloadAction<CurrencyShortInterface[]>
     ) {
       state.userCurrency = action.payload;
-      state.currencyVolume = getGeneralCurrencyVolume(action.payload);
     },
 
     addNewCurrency(state, action: PayloadAction<CurrencyShortInterface>) {
