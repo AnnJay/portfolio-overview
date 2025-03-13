@@ -1,0 +1,80 @@
+@import "./../../variables.scss";
+
+.table {
+  height: 80vh;
+}
+
+.table__row {
+  display: flex;
+  height: 40px;
+  align-items: center;
+
+  &:hover {
+    background-color: $blue-pale;
+    cursor: pointer;
+    transition: color 0.4s ease;
+  }
+}
+
+.table__cell {
+  text-align: center;
+  color: $gray-dark;
+}
+
+.table__cell--value-up {
+  color: $color-success;
+}
+
+.table__cell--value-down {
+  color: $color-warning;
+}
+
+.table__header {
+  display: flex;
+  padding: 1rem 1.5rem;
+  font-weight: $font-weight-column-header;
+  color: $blue-dark;
+}
+
+.table__column-header {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: $gray-medium;
+  text-align: center;
+
+  &:hover {
+    color: $blue-primary;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  &:not(:last-child) {
+    margin-right: 1rem;
+  }
+}
+
+.virtual__container {
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background-color: $blue-pale;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue-primary;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $blue-dark;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}

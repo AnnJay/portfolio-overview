@@ -12,6 +12,8 @@ export const filterCurrencyData = (data: CurrencyFullInterface[]) =>
 export const getCoinName = (symbol: string) =>
   symbol.toLowerCase().replace(STABLE_COIN, "");
 
+export const fixLastPrice = (price: string) => `$ ${Number(price).toFixed(4)}`;
+
 export const shortenInitialRecord = (currency: CurrencyFullInterface) => {
   const newRecord: CurrencyShortInterface = {
     symbol: currency.symbol,
@@ -41,4 +43,17 @@ export const normalizeCurrencyDataForStore = (
     },
     {}
   );
+};
+
+export const getGeneralCurrencyVolume = (data: CurrencyShortInterface[]) =>
+  data.reduce<number>((acc, cur) => acc + Number(cur.lastPrice) * cur.count, 0);
+
+export const getVolumePercentInPortfolio = (
+  currencyVolume: number,
+  record: CurrencyShortInterface
+) => {
+  const res =
+    ((Number(record.lastPrice) * record.count) / currencyVolume) * 100;
+
+  return `${res.toFixed(2)} %`;
 };

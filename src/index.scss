@@ -1,0 +1,118 @@
+@import "variables";
+
+//Раздел общих стилей
+
+html {
+  font-size: $font-size-sm;
+  color: $gray-dark;
+  font-family: "Montserrat", sans-serif;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+p {
+  color: $gray-medium;
+}
+
+// Ширины колонок
+.col-width-sm {
+  width: $width-10;
+}
+
+.col-width-md {
+  width: $width-15;
+}
+
+.col-width-lg {
+  width: $width-20;
+}
+
+.col-width-xl {
+  width: $width-25;
+}
+
+.col-width-xxl {
+  width: $width-50;
+}
+
+// Основные классы для ширин
+
+.width-100 {
+  width: $width-100;
+}
+
+// Размер текста
+.text-xs {
+  font-size: $font-size-xs;
+}
+
+.text-sm {
+  font-size: $font-size-sm;
+}
+
+.text-md {
+  font-size: $font-size-md;
+}
+
+.text-lg {
+  font-size: $font-size-lg;
+}
+
+//Стили интерактивных элементов
+
+.button {
+  padding: 0.75rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  font-family: "Montserrat", sans-serif;
+
+  &-primary {
+    background-color: $blue-primary;
+    color: white;
+    border: 1px solid $blue-primary;
+
+    &:hover {
+      background-color: $blue-dark;
+    }
+  }
+}
+
+// Стили оформления границ
+.border-bottom {
+  &-primary {
+    border-bottom: 2px solid $blue-primary;
+  }
+  &-primary--light {
+    border-bottom: 1px solid $blue-primary;
+  }
+
+  &-secondary {
+    border-bottom: 2px solid $orange-primary;
+  }
+
+  &-secondary--light {
+    border-bottom: 1px solid $orange-primary;
+  }
+}
+
+.app-container {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}

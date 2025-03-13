@@ -1,0 +1,85 @@
+@import "./../../variables.scss";
+
+.currency__list {
+  height: 300px;
+  overflow-y: scroll;
+  color: $gray-dark;
+  text-transform: uppercase;
+  padding-left: 0;
+  margin-bottom: 1rem;
+
+  &-item {
+    display: flex;
+    padding: 0.75rem 0.5rem;
+
+    &:hover {
+      background-color: $blue-pale;
+    }
+
+    div:not(:first-child) {
+      text-align: center;
+    }
+  }
+
+  &::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+    background-color: $blue-pale;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue-primary;
+    border-radius: 4px;
+
+    &:hover {
+      background-color: $blue-dark;
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+}
+
+.input__container {
+  margin-bottom: 1rem;
+
+  input {
+    padding: 0.75rem 0;
+    font-size: 1rem;
+    color: $gray-dark;
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid $blue-light;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: $gray-medium;
+    }
+
+    &:focus {
+      border-bottom-color: $blue-dark;
+    }
+
+    &:hover {
+      border-bottom-color: $blue-primary;
+    }
+  }
+}
+
+.selected-item {
+  width: 45%;
+  &__container {
+    display: flex;
+    margin-bottom: 1rem;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+}
+
+.bottom__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
