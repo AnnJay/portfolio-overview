@@ -1,3 +1,19 @@
+import { useEffect } from "react";
+
+import { useAppDispatch } from "./hooks/redux";
+import { MainPage } from "./pages/MainPage";
+import { fetchAllCurrency } from "./store/reducers/asyncActions";
+
 export const App = () => {
-  return <div>App</div>;
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAllCurrency());
+  }, []);
+
+  return (
+    <div className="app-container">
+      <MainPage />
+    </div>
+  );
 };

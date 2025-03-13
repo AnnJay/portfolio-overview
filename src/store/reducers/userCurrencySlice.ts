@@ -68,6 +68,20 @@ export const userCurrencySlice = createSlice({
       state.userCurrency = newData;
       updateStorage(newData);
     },
+
+    updateVisibleCurrency(state, action: PayloadAction<string[]>) {
+      state.visibleCurrency = action.payload;
+    },
+
+    refreshWithSocketData(
+      state,
+      action: PayloadAction<CurrencyShortInterface[]>
+    ) {
+      if (state.userCurrency.length === action.payload.length) {
+        console.log("refrexh");
+        state.userCurrency = action.payload;
+      }
+    },
   },
 });
 
